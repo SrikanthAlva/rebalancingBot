@@ -1,0 +1,357 @@
+[
+    { "inputs": [], "name": "EnforcedPause", "type": "error" },
+    { "inputs": [], "name": "ExpectedPause", "type": "error" },
+    { "inputs": [], "name": "InvalidInitialization", "type": "error" },
+    { "inputs": [], "name": "NotInitializing", "type": "error" },
+    {
+        "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+        "name": "OwnableInvalidOwner",
+        "type": "error"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+        "name": "OwnableUnauthorizedAccount",
+        "type": "error"
+    },
+    { "inputs": [], "name": "ReentrancyGuardReentrantCall", "type": "error" },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "asset", "type": "address" },
+            { "indexed": false, "internalType": "bool", "name": "isActive", "type": "bool" }
+        ],
+        "name": "ADLActivated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "asset", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "newValue", "type": "uint256" }
+        ],
+        "name": "CollateralizationRatioUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "asset", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "percentage", "type": "uint256" }
+        ],
+        "name": "CompartmentAssigned",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "uint256", "name": "time", "type": "uint256" }],
+        "name": "EpochDurationUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "address", "name": "escrow", "type": "address" }],
+        "name": "EscrowAddressAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": true, "internalType": "address", "name": "tokenAddress", "type": "address" }],
+        "name": "IndexTokenAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "uint64", "name": "version", "type": "uint64" }],
+        "name": "Initialized",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }],
+        "name": "LiquidityAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }],
+        "name": "LiquidityReduced",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "assetAddress", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "percentage", "type": "uint256" }
+        ],
+        "name": "NewAssetAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" },
+            { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }],
+        "name": "Paused",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "address", "name": "protocolLiquidator", "type": "address" }],
+        "name": "ProtocolLiquidatorAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "address", "name": "newRouter", "type": "address" }],
+        "name": "RouterAddressAdded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "staker", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "Staked",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{ "indexed": false, "internalType": "address", "name": "account", "type": "address" }],
+        "name": "Unpaused",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            { "indexed": true, "internalType": "address", "name": "staker", "type": "address" },
+            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" },
+            { "indexed": false, "internalType": "uint256", "name": "reward", "type": "uint256" }
+        ],
+        "name": "Unstaked",
+        "type": "event"
+    },
+    { "inputs": [], "name": "Compartmentalise", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+        "inputs": [{ "internalType": "address", "name": "_address", "type": "address" }],
+        "name": "_addRouter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "_escrow", "type": "address" }],
+        "name": "addEscrow",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "_address", "type": "address" }],
+        "name": "addIndexToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address[]", "name": "_address", "type": "address[]" },
+            { "internalType": "uint256[]", "name": "_percentage", "type": "uint256[]" }
+        ],
+        "name": "addNewAsset",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "_percentage", "type": "uint256" },
+            { "internalType": "address", "name": "_indexToken", "type": "address" }
+        ],
+        "name": "addOptimalUtilization",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "_protocolLiquidator", "type": "address" }],
+        "name": "addProtocolLiquidator",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint256", "name": "time", "type": "uint256" }],
+        "name": "addcompartmentalisationTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_asset", "type": "address" },
+            { "internalType": "uint256", "name": "_percentage", "type": "uint256" }
+        ],
+        "name": "assignCompartment",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_indexToken", "type": "address" },
+            { "internalType": "uint256", "name": "_compartmentBalance", "type": "uint256" },
+            { "internalType": "uint256", "name": "_deductingAmount", "type": "uint256" }
+        ],
+        "name": "checkIfBorrowLimitIsHitting",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+        "name": "claim",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_address", "type": "address" },
+            { "internalType": "uint256", "name": "price", "type": "uint256" }
+        ],
+        "name": "getADLactive",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "_address", "type": "address" }],
+        "name": "getClaimableAmount",
+        "outputs": [{ "internalType": "uint256", "name": "claimableAmount", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_address", "type": "address" },
+            { "internalType": "uint256", "name": "price", "type": "uint256" }
+        ],
+        "name": "getGlobalPnl",
+        "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_address", "type": "address" },
+            { "internalType": "uint256", "name": "price", "type": "uint256" }
+        ],
+        "name": "isADLneeded",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    { "inputs": [], "name": "pause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+        "inputs": [],
+        "name": "paused",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_asset", "type": "address" },
+            { "internalType": "uint256", "name": "_percentage", "type": "uint256" }
+        ],
+        "name": "setADLpercentage",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+        "name": "stakeLP",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
+        "name": "unStakeLP",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    { "inputs": [], "name": "unpause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "_address", "type": "address" },
+            { "internalType": "uint256", "name": "_value", "type": "uint256" }
+        ],
+        "name": "updateCR",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "uint256", "name": "time", "type": "uint256" }],
+        "name": "updateEpochDuration",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "token", "type": "address" },
+            { "internalType": "uint256", "name": "averagePriceLong", "type": "uint256" },
+            { "internalType": "uint256", "name": "averagePriceShort", "type": "uint256" },
+            { "internalType": "uint256", "name": "reservedSizeLong", "type": "uint256" },
+            { "internalType": "uint256", "name": "reservedSizeShort", "type": "uint256" }
+        ],
+        "name": "updatePriceAndSize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "updateValidAndInvalidCompartment",
+        "outputs": [
+            { "internalType": "address[]", "name": "", "type": "address[]" },
+            { "internalType": "address[]", "name": "", "type": "address[]" }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "validatecompatmentNeutrality",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
